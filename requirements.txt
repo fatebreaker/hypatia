@@ -1,0 +1,30 @@
+# Analysis + harness environment (python 3.10 is fine here).
+#   python3 -m venv venv && venv/bin/pip install -r requirements.txt
+duckdb>=1.5
+pyarrow>=25.0
+polars>=1.4
+numpy>=2.0
+pandas>=2.2
+scipy>=1.15
+statsmodels>=0.14
+scikit-learn>=1.7
+pypdf>=6.0
+huggingface_hub>=1.0
+# Readers for the formats BixBench capsules actually ship. Without openpyxl,
+# pandas cannot open .xlsx -- which is 633 of the capsule data files, i.e. the
+# dominant format. The agent correctly asked to install it and could not, so
+# the benchmark was measuring "can you read xlsx with no xlsx reader".
+openpyxl>=3.1
+biopython>=1.84        # .faa / .fastq sequence files (118 more)
+xlrd>=2.0              # legacy .xls
+matplotlib>=3.8        # agents plot as a way of inspecting; MPLBACKEND=Agg is set
+seaborn>=0.13
+gseapy>=1.1            # gene-set enrichment -- 14 errors in one run without it
+pysam>=0.22            # VCF/BAM readers
+# NOT installable here: rpy2 and clusterProfiler/enrichGO need an R runtime.
+# Questions requiring R are unanswerable in this sandbox regardless of model
+# quality -- count them separately rather than scoring them as failures.
+# third domain (astronomy demonstrations, rl/traces_astro.py --style lib): the transit model is the PyPI package
+# batman-package (import name batman) -- NOT 'Batman', an unrelated deployment tool with the same import name
+astropy>=6.1
+batman-package==2.5.3

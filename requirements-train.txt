@@ -1,0 +1,10 @@
+# Serving + training environment. MUST be python 3.12 -- vLLM 0.26 fails on
+# 3.10 (Triton cannot parse a MiniMax kernel). Install with uv, not pip:
+#   uv venv --python 3.12 venv_vllm
+#   VIRTUAL_ENV=venv_vllm uv pip install -r requirements-train.txt
+vllm>=0.26
+trl>=1.9
+peft>=0.20
+accelerate>=1.14
+datasets>=5.0
+ninja
