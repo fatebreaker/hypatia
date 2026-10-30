@@ -1,13 +1,31 @@
-# open-analysts
+# Hypatia
 
-Code for *Reinforcement learning and distillation close the gap between small open models and frontier models in
-scientific data analysis* (manuscript in preparation).
+Code for *Reinforcement learning and distillation make small open models competitive scientific data analysts*
+(manuscript in preparation).
 
-Small open models (Qwen3.5 with 4 and 9 billion parameters) are trained, by reinforcement learning in a notebook
+Hypatia is a family of small open models (Qwen3.5 with 4 and 9 billion parameters) trained, by reinforcement learning in a notebook
 harness and by distillation from a larger model trained the same way, to analyse data in six domains: statistics and
 causal inference (QRData), clinical calculation (MedCalc-Bench), health-record questions (EHRSQL), clinical agent tasks
 (MedAgentBench), biomedical data science (BioDSBench) and astronomy (Kepler light curves). They are compared, in the
 same harness, with GPT-6 Sol and Claude Opus 5.5.
+
+## Models
+
+Each Hypatia specialist is a LoRA adapter trained for one domain; Hypatia-9B is a single 9B for all six.
+
+| Model | Domain (benchmark) |
+|:--|:--|
+| Hypatia-9B-Stats, Hypatia-4B-Stats | statistics and causal inference (QRData) |
+| Hypatia-9B-MedCalc, Hypatia-4B-MedCalc | clinical calculation (MedCalc-Bench) |
+| Hypatia-9B-EHR, Hypatia-4B-EHR | health-record questions (EHRSQL) |
+| Hypatia-9B-MedAgent, Hypatia-4B-MedAgent | clinical agent tasks (MedAgentBench) |
+| Hypatia-9B-Bio, Hypatia-4B-Bio | biomedical data science (BioDSBench) |
+| Hypatia-9B-Astro, Hypatia-4B-Astro | astronomy (Kepler light curves) |
+| Hypatia-9B | all six |
+| Hypatia-27B-Teacher | the RL-trained Qwen3.6-27B teachers (clinical, astronomy) |
+
+The adapters will be at `huggingface.co/bio-nlp-umass/<model>` with the paper, on the text-only bases
+`bio-nlp-umass/Qwen3.5-9B-text` and `bio-nlp-umass/Qwen3.5-4B-text`.
 
 ## Layout
 
@@ -24,7 +42,8 @@ same harness, with GPT-6 Sol and Claude Opus 5.5.
 
 - **Benchmarks:** they are other people's data. Use the fetch scripts in `scripts/` (`fetch_*.py`) to get them from
   their sources.
-- **Model adapters, training pools, teacher notebooks and graded transcripts:** to be released on Hugging Face.
+- **Model adapters:** the Hypatia models above, on Hugging Face.
+- **Training pools, teacher notebooks and graded transcripts:** to be released on Hugging Face (`bio-nlp-umass/Hypatia-data`).
 - **The time-stamped analysis plan:** released with the paper as Supplementary Data.
 
 ## Running
@@ -35,8 +54,7 @@ adapting before use.
 
 ## Licence and citation
 
-The code is released under the Apache License 2.0 (`LICENSE`). The model adapters on Hugging Face are released under Apache-2.0
-as well; adapters of Llama-3.1-8B-Instruct are in addition subject to the Llama 3.1 Community License. The benchmarks keep their
-own licences and are not redistributed here.
+The code is released under the Apache License 2.0 (`LICENSE`). The Hypatia adapters on Hugging Face are released under Apache-2.0
+as well. The benchmarks keep their own licences and are not redistributed here.
 
 Citation: to be added at publication.
