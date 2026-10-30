@@ -11,7 +11,8 @@ same harness, with GPT-6 Sol and Claude Opus 5.5.
 
 ## Models
 
-Each Hypatia specialist is a LoRA adapter trained for one domain; Hypatia-9B is a single 9B for all six.
+Each Hypatia specialist is a LoRA adapter trained for one domain; the paper's Table 1 reports each size's six specialists as
+Hypatia-4B and Hypatia-9B. Hypatia-9B-Unified is a single 9B for all six.
 
 | Model | Domain (benchmark) |
 |:--|:--|
@@ -21,7 +22,7 @@ Each Hypatia specialist is a LoRA adapter trained for one domain; Hypatia-9B is 
 | Hypatia-9B-MedAgent, Hypatia-4B-MedAgent | clinical agent tasks (MedAgentBench) |
 | Hypatia-9B-Bio, Hypatia-4B-Bio | biomedical data science (BioDSBench) |
 | Hypatia-9B-Astro, Hypatia-4B-Astro | astronomy (Kepler light curves) |
-| Hypatia-9B | all six |
+| Hypatia-9B-Unified | all six |
 | Hypatia-27B-Teacher | the RL-trained Qwen3.6-27B teachers (clinical, astronomy) |
 
 The adapters will be at `huggingface.co/bio-nlp-umass/<model>` with the paper, on the text-only bases
