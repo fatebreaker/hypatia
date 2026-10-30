@@ -35,4 +35,8 @@ adapting before use.
 
 ## Licence and citation
 
-To be added.
+The code is released under the Apache License 2.0 (`LICENSE`). The model adapters on Hugging Face are released under Apache-2.0
+as well; adapters of Llama-3.1-8B-Instruct are in addition subject to the Llama 3.1 Community License. The benchmarks keep their
+own licences and are not redistributed here.
+
+Citation: to be added at publication.
